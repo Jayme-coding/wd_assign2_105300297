@@ -23,12 +23,12 @@ assignment2/
 ├── js/
 │   └── script.js          (Validation and logic - 355 lines)
 └── images/                (Restaurant images folder)
-    ├── restaurant1.jpg
-    ├── restaurant2.jpg
-    ├── restaurant3.jpg
-    ├── restaurant4.jpg
-    ├── restaurant5.jpg
-    └── restaurant6.jpg
+    ├── Giardino.jpg
+    ├── SupperInn.jpg
+    ├── TemakiSushi.jpg
+    ├── Lepetitbistro.jpg
+    ├── TastyCambodian.jpg
+    └── GYG.jpg
 
 HTML Pages:
 
@@ -222,16 +222,13 @@ REFERENCES & ATTRIBUTIONS
 ==============================================================================
 
 Images:
-- All restaurant images are placeholder images
-- Recommended sources for replacement images: Unsplash, Pexels, Pixabay
-- If using images from these sources, attribution format:
-  "Image from Unsplash.com" or "Free stock photo from Pexels.com"
+- Image on index.html page is a personal image.
+- Restaurant image source: Google Map Images
 
 Code & Techniques:
 - HTML5 semantic elements based on W3C standards
 - CSS Grid and Flexbox for responsive layouts
 - JavaScript form validation using regex patterns and DOM manipulation
-- No external frameworks or libraries used
 
 ==============================================================================
 
