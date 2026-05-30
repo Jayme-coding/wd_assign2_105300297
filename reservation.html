@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make a Reservation - DineFind</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">🍽️</span> DineFind
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="restaurants.html" class="nav-link">Restaurants</a></li>
+                    <li><a href="recommend.html" class="nav-link">Recommend</a></li>
+                    <li><a href="register.html" class="nav-link">Register</a></li>
+                    <li><a href="reservation.html" class="nav-link active">Reserve</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="reservation-section">
+            <div class="container">
+                <h1>Make Your Reservation</h1>
+                <p class="section-subtitle">Secure your table at your favorite restaurant</p>
+
+                <div class="form-container">
+                    <form id="reservationForm" method="POST" action="http://mercury.swin.edu.au/it000000/cos10005/regtest.php">
+                        
+                        <!-- Personal Information Section -->
+                        <fieldset>
+                            <legend>Your Information</legend>
+                            
+                            <!-- Full Name -->
+                            <div class="form-group">
+                                <label for="fullName">Full Name:</label>
+                                <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+                                <span class="error-message" id="fullNameError"></span>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="form-group">
+                                <label for="reservationEmail">Email Address:</label>
+                                <input type="email" id="reservationEmail" name="email" placeholder="your@email.com" required>
+                                <span class="error-message" id="reservationEmailError"></span>
+                            </div>
+
+                            <!-- Phone -->
+                            <div class="form-group">
+                                <label for="reservationPhone">Phone Number:</label>
+                                <input type="tel" id="reservationPhone" name="phone" placeholder="At least 10 digits" required>
+                                <span class="error-message" id="reservationPhoneError"></span>
+                            </div>
+                        </fieldset>
+
+                        <!-- Restaurant & Date Section -->
+                        <fieldset>
+                            <legend>Reservation Details</legend>
+                            
+                            <!-- Restaurant Selection -->
+                            <div class="form-group">
+                                <label for="restaurantSelect">Restaurant:</label>
+                                <select id="restaurantSelect" name="restaurant" required>
+                                    <option value="">-- Select a Restaurant --</option>
+                                    <option value="Giardino Pizza">Giardino Pizza</option>
+                                    <option value="Supper Inn">Supper Inn</option>
+                                    <option value="Tekami Sushi">Tekami Sushi</option>
+                                    <option value="Le Petit Bistro">Le Petit Bistro</option>
+                                    <option value="Tasty Cambodian">Tasty Cambodian</option>
+                                    <option value="GYG">GYG</option>
+                                </select>
+                                <span class="error-message" id="restaurantError"></span>
+                            </div>
+
+                            <!-- Reservation Date -->
+                            <div class="form-group">
+                                <label for="reservationDate">Reservation Date:</label>
+                                <input type="date" id="reservationDate" name="date" required>
+                                <span class="error-message" id="reservationDateError"></span>
+                            </div>
+
+                            <!-- Reservation Time -->
+                            <div class="form-group">
+                                <label for="reservationTime">Reservation Time:</label>
+                                <input type="time" id="reservationTime" name="time" required>
+                                <span class="error-message" id="reservationTimeError"></span>
+                            </div>
+
+                            <!-- Number of People -->
+                            <div class="form-group">
+                                <label for="numPeople">Number of People:</label>
+                                <input type="number" id="numPeople" name="numPeople" min="1" placeholder="1" required>
+                                <span class="error-message" id="numPeopleError"></span>
+                            </div>
+
+                            <!-- Special Requests -->
+                            <div class="form-group">
+                                <label for="specialRequests">Special Requests (Optional):</label>
+                                <textarea id="specialRequests" name="specialRequests" placeholder="e.g., High chair needed, window seating preferred" rows="3"></textarea>
+                            </div>
+                        </fieldset>
+
+                        <!-- Deposit & Payment Section -->
+                        <fieldset>
+                            <legend>Deposit & Payment</legend>
+                            
+                            <!-- Deposit Amount (Read-only) -->
+                            <div class="form-group">
+                                <label for="depositAmount">Deposit Amount (AUD):</label>
+                                <input type="text" id="depositAmount" name="depositAmount" readonly placeholder="$0.00">
+                                <span class="help-text">Automatically calculated based on selected restaurant</span>
+                            </div>
+
+                            <!-- Payment Method -->
+                            <div class="form-group">
+                                <label>Payment Method:</label>
+                                <div class="radio-group">
+                                    <label class="radio-label">
+                                        <input type="radio" name="paymentMethod" value="voucher" required> Voucher Code
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="paymentMethod" value="online" required> Online Payment (Credit Card)
+                                    </label>
+                                </div>
+                                <span class="error-message" id="paymentMethodError"></span>
+                            </div>
+
+                            <!-- Voucher Code (Conditionally Displayed) -->
+                            <div class="form-group" id="voucherGroup" style="display: none;">
+                                <label for="voucherCode">Voucher Code:</label>
+                                <input type="text" id="voucherCode" name="voucherCode" placeholder="Enter 12-digit voucher code">
+                                <span class="help-text">Enter your 12-digit voucher code</span>
+                                <span class="error-message" id="voucherCodeError"></span>
+                            </div>
+
+                            <!-- Credit Card Details (Conditionally Displayed) -->
+                            <div id="creditCardGroup" style="display: none;">
+                                <div class="form-group">
+                                    <label for="creditCardNumber">Credit Card Number:</label>
+                                    <input type="text" id="creditCardNumber" name="creditCardNumber" placeholder="Enter card number">
+                                    <span class="help-text">Visa/Mastercard (16 digits) or Amex (15 digits).</span>
+                                    <span class="error-message" id="creditCardNumberError"></span>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="cardExpiry">Expiry Date:</label>
+                                        <input type="text" id="cardExpiry" name="cardExpiry" placeholder="MM/YY">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cardCVC">CVC:</label>
+                                        <input type="text" id="cardCVC" name="cardCVC" placeholder="3-4 digits">
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <!-- Billing Address Section -->
+                        <fieldset>
+                            <legend>Billing Information</legend>
+                            
+                            <!-- Billing Email -->
+                            <div class="form-group">
+                                <label for="billingEmail">Billing Email Address:</label>
+                                <input type="email" id="billingEmail" name="billingEmail" placeholder="Billing email" required>
+                                <span class="error-message" id="billingEmailError"></span>
+                            </div>
+
+                            <!-- Same as Email Checkbox -->
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="sameAsEmail" name="sameAsEmail"> Same as email address
+                                </label>
+                            </div>
+                        </fieldset>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-primary btn-block">Complete Reservation</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 DineFind. All rights reserved.</p>
+            <p>Making dining reservations simple, fast, and enjoyable.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

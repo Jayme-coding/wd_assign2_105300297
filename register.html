@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - DineFind</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">🍽️</span> DineFind
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="restaurants.html" class="nav-link">Restaurants</a></li>
+                    <li><a href="recommend.html" class="nav-link">Recommend</a></li>
+                    <li><a href="register.html" class="nav-link active">Register</a></li>
+                    <li><a href="reservation.html" class="nav-link">Reserve</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="register-section">
+            <div class="container">
+                <div class="form-container">
+                    <h1>Create Your DineFind Account</h1>
+                    <p class="section-subtitle">Join thousands of food enthusiasts discovering great restaurants</p>
+
+                    <form id="registrationForm" method="POST" action="http://mercury.swin.edu.au/it000000/cos10005/regtest.php">
+                        <!-- Username -->
+                        <div class="form-group">
+                            <label for="username">Username:</label>
+                            <input type="text" id="username" name="username" placeholder="5+ characters, letters/numbers/underscore only" required>
+                            <span class="error-message" id="usernameError"></span>
+                        </div>
+
+                        <!-- Email Address -->
+                        <div class="form-group">
+                            <label for="email">Email Address:</label>
+                            <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                            <span class="error-message" id="emailError"></span>
+                        </div>
+
+                        <!-- Phone Number -->
+                        <div class="form-group">
+                            <label for="phone">Phone Number:</label>
+                            <input type="tel" id="phone" name="phone" placeholder="8-15 digits" required>
+                            <span class="error-message" id="phoneError"></span>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" name="password" placeholder="Min 10 chars: uppercase, lowercase, number, special char" required>
+                            <span class="error-message" id="passwordError"></span>
+                        </div>
+
+                        <!-- Confirm Password -->
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password:</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Re-enter your password" required>
+                            <span class="error-message" id="confirmPasswordError"></span>
+                        </div>
+
+                        <!-- Gender -->
+                        <div class="form-group">
+                            <label>Gender:</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="gender" value="male" required> Male
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="gender" value="female" required> Female
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="gender" value="other" required> Other
+                                </label>
+                            </div>
+                            <span class="error-message" id="genderError"></span>
+                        </div>
+
+                        <!-- Dietary Preferences -->
+                        <div class="form-group">
+                            <label>Dietary Preferences:</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="dietaryPreferences" value="vegan"> Vegan
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="dietaryPreferences" value="vegetarian"> Vegetarian
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="dietaryPreferences" value="halal"> Halal
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="dietaryPreferences" value="gluten-free"> Gluten-Free
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="dietaryPreferences" value="none"> None
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Country/Region -->
+                        <div class="form-group">
+                            <label for="country">Country/Region:</label>
+                            <select id="country" name="country" required>
+                                <option value="">-- Select Country --</option>
+                                <option value="australia">Australia</option>
+                                <option value="canada">Cambodia</option>
+                                <option value="uk">United Kingdom</option>
+                                <option value="usa">United States</option>
+                                <option value="india">India</option>
+                                <option value="japan">Japan</option>
+                                <option value="france">France</option>
+                                <option value="mexico">Mexico</option>
+                                <option value="china">China</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <span class="error-message" id="countryError"></span>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+                    </form>
+
+                    <p class="login-link">Already have an account? <a href="index.html">Return to Home</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 DineFind. All rights reserved.</p>
+            <p>Making dining reservations simple, fast, and enjoyable.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

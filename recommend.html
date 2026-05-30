@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Recommendations - DineFind</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">🍽️</span> DineFind
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="restaurants.html" class="nav-link">Restaurants</a></li>
+                    <li><a href="recommend.html" class="nav-link active">Recommend</a></li>
+                    <li><a href="register.html" class="nav-link">Register</a></li>
+                    <li><a href="reservation.html" class="nav-link">Reserve</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="recommend-section">
+            <div class="container">
+                <h1>Find Your Perfect Restaurant</h1>
+                <p class="section-subtitle">Answer a few questions and we'll recommend 
+                    the ideal restaurant for your occasion</p>
+
+                <div class="recommend-container">
+                    <!-- Preference Form -->
+                    <div class="preference-form">
+                        <form id="recommendationForm">
+                            <!-- Dietary Preference -->
+                            <div class="form-group">
+                                <label for="dietaryPref">Dietary Preference:</label>
+                                <select id="dietaryPref" name="dietaryPref" required>
+                                    <option value="">-- Select Preference --</option>
+                                    <option value="vegetarian">Vegetarian</option>
+                                    <option value="halal">Halal</option>
+                                    <option value="gluten-free">Gluten-Free</option>
+                                    <option value="none">No Restrictions</option>
+                                </select>
+                            </div>
+
+                            <!-- Budget Range -->
+                            <div class="form-group">
+                                <label for="budgetRange">Budget Range:</label>
+                                <select id="budgetRange" name="budgetRange" required>
+                                    <option value="">-- Select Budget --</option>
+                                    <option value="budget">Budget-Friendly ($20-35)</option>
+                                    <option value="moderate">Moderate ($35-55)</option>
+                                    <option value="upscale">Upscale ($55-80)</option>
+                                </select>
+                            </div>
+
+                            <!-- Dining Purpose -->
+                            <div class="form-group">
+                                <label for="diningPurpose">Dining Purpose:</label>
+                                <select id="diningPurpose" name="diningPurpose" required>
+                                    <option value="">-- Select Purpose --</option>
+                                    <option value="family">Family Dinner</option>
+                                    <option value="date">Romantic Date</option>
+                                    <option value="business">Business Meeting</option>
+                                    <option value="casual">Casual Hangout</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Get Recommendations</button>
+                        </form>
+                    </div>
+
+                    <!-- Recommendations Display -->
+                    <div id="recommendationResults" class="recommendation-results" style="display: none;">
+                        <h2>Our Recommendations</h2>
+                        <div id="recommendedRestaurants" class="recommended-restaurants"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Restaurant Database Section (Hidden) -->
+        <script type="application/json" id="restaurantDatabase">
+        {
+            "restaurants": [
+                {
+                    "name": "Giardino Pizza",
+                    "cuisine": "Italian",
+                    "priceRange": "moderate",
+                    "averagePrice": "55",
+                    "dietaryOptions": ["vegetarian", "none"],
+                    "suitableFor": ["date", "casual", "business"],
+                    "deposit": 50,
+                    "description": "Elegant Italian fine dining with romantic ambiance"
+                },
+                {
+                    "name": "Supper Inn",
+                    "cuisine": "Chinese",
+                    "priceRange": "moderate",
+                    "averagePrice": "40",
+                    "dietaryOptions": ["vegetarian", "none"],
+                    "suitableFor": ["family", "casual"],
+                    "deposit": 40,
+                    "description": "Authentic Chinese cuisine, perfect for family gatherings"
+                },
+                {
+                    "name": "Temaki Sushi",
+                    "cuisine": "Japanese",
+                    "priceRange": "upscale",
+                    "averagePrice": "62",
+                    "dietaryOptions": ["gluten-free", "none"],
+                    "suitableFor": ["date", "business", "casual"],
+                    "deposit": 60,
+                    "description": "Premium sushi bar with certified master chefs"
+                },
+                {
+                    "name": "Le Petit Bistro",
+                    "cuisine": "French",
+                    "priceRange": "upscale",
+                    "averagePrice": "67",
+                    "dietaryOptions": ["vegetarian", "none"],
+                    "suitableFor": ["date", "business"],
+                    "deposit": 70,
+                    "description": "Classic French bistro with excellent wine selection"
+                },
+                {
+                    "name": "Tasty Cambodian",
+                    "cuisine": "Cambodian",
+                    "priceRange": "budget",
+                    "averagePrice": "35",
+                    "dietaryOptions": ["vegetarian", "none"],
+                    "suitableFor": ["family", "casual", "date"],
+                    "deposit": 35,
+                    "description": "Authentic Cambodian cuisine with diverse dietary options"
+                },
+                {
+                    "name": "GYG",
+                    "cuisine": "Mexican",
+                    "priceRange": "moderate",
+                    "averagePrice": "38",
+                    "dietaryOptions": ["vegetarian", "none"],
+                    "suitableFor": ["family", "casual"],
+                    "deposit": 45,
+                    "description": "Vibrant Mexican restaurant with warm hospitality"
+                }
+            ]
+        }
+        </script>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 DineFind. All rights reserved.</p>
+            <p>Making dining reservations simple, fast, and enjoyable.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
