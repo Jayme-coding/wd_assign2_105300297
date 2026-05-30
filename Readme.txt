@@ -66,19 +66,7 @@ payment fields, auto-fill billing email, navigation highlighting).
 GITHUB REPOSITORY LINK
 ==============================================================================
 
-Repository Link: [INSERT YOUR GITHUB URL HERE]
-
-Note: Please create a public GitHub repository and update this link before
-submission. The repository must be accessible to markers during the grading
-period.
-
-GitHub Setup:
-1. Create new public repository on github.com
-2. Initialize git in your project folder
-3. Add all files: git add .
-4. Commit: git commit -m "Initial commit: DineHub restaurant platform"
-5. Push to GitHub: git push -u origin main
-6. Copy repository URL and update above link
+Repository Link: https://github.com/Jayme-coding/wd_assign2_105300297
 
 ==============================================================================
 EXPLANATION OF JAVASCRIPT VALIDATION LOGIC (In Plain English)
